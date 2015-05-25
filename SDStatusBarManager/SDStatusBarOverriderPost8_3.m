@@ -133,7 +133,7 @@ typedef struct {
   overrides->booloverrideItemIsEnabled[8] = 1;
   overrides->values.boolitemIsEnabled[8] = 1;
   overrides->overrideBatteryDetailString = 1;
-  strcpy(overrides->values.batteryDetailString, [@"100%" cStringUsingEncoding:NSUTF8StringEncoding]);
+  strcpy(overrides->values.batteryDetailString, [@"" cStringUsingEncoding:NSUTF8StringEncoding]);
   
   // Bluetooth
   overrides->booloverrideItemIsEnabled[11] = self.bluetoothEnabled;
