@@ -121,6 +121,13 @@ typedef struct {
     overrides->values.gsmSignalStrengthBars = 5;
   }
   
+  // Disable WiFi icon
+  overrides->booloverrideItemIsEnabled[5] = 1;
+  overrides->values.boolitemIsEnabled[5] = 1;
+  overrides->overrideDataNetworkType = 1;
+  overrides->values.dataNetworkType = 0;
+  overrides->disallowsCellularDataNetworkTypes = 1;
+
   // Remove carrier text for iPhone, set it to "iPad" for the iPad
   NSString *carrierText = self.carrierName;
   if ([carrierText length] <= 0) {
