@@ -113,20 +113,20 @@ typedef struct {
   overrides->overrideTimeString = 1;
   strcpy(overrides->values.timeString, [self.timeString cStringUsingEncoding:NSUTF8StringEncoding]);
   
-  // Enable 5 bars of mobile (iPhone only)
+  // Enable 5 bars
+  overrides->booloverrideItemIsEnabled[3] = 1;
+  overrides->values.boolitemIsEnabled[3] = 1;
+  overrides->overrideGsmSignalStrengthBars = 1;
+  overrides->values.gsmSignalStrengthBars = 5;
+
+  // Disable WiFi icon (iPhone only)
   if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-    overrides->booloverrideItemIsEnabled[3] = 1;
-    overrides->values.boolitemIsEnabled[3] = 1;
-    overrides->overrideGsmSignalStrengthBars = 1;
-    overrides->values.gsmSignalStrengthBars = 5;
+    overrides->booloverrideItemIsEnabled[5] = 1;
+    overrides->values.boolitemIsEnabled[5] = 1;
+    overrides->overrideDataNetworkType = 1;
+    overrides->values.dataNetworkType = 0;
+    overrides->disallowsCellularDataNetworkTypes = 1;
   }
-  
-  // Disable WiFi icon
-  overrides->booloverrideItemIsEnabled[5] = 1;
-  overrides->values.boolitemIsEnabled[5] = 1;
-  overrides->overrideDataNetworkType = 1;
-  overrides->values.dataNetworkType = 0;
-  overrides->disallowsCellularDataNetworkTypes = 1;
 
   // Remove carrier text for iPhone, set it to "iPad" for the iPad
   NSString *carrierText = self.carrierName;
